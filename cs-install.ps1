@@ -20,11 +20,11 @@ Request-FalconToken -ClientId $ClientId -ClientSecret $ClientSecret
 
 # Test Token
 if ((Test-FalconToken).Token) {
-	$filepath = $PSScriptRoot + '\WindowsSensor.exe'
+    $filepath = $PSScriptRoot + '\WindowsSensor.exe'
     $cid = Get-FalconCcid
 
     # Download Sensor
-	Get-FalconInstaller -Detailed -Limit 1 -Filter "platform:'windows'" | Receive-FalconInstaller -Path $filepath
+    Get-FalconInstaller -Detailed -Limit 1 -Filter "platform:'windows'" | Receive-FalconInstaller -Path $filepath
     
     # Install Sensor
     if (Test-Path $filepath) {
